@@ -290,13 +290,14 @@ type (
 
 	// Item struct
 	Item struct {
-		Quantity    uint32 `json:"quantity"`
+		Quantity    string `json:"quantity"`
 		Name        string `json:"name"`
 		Price       string `json:"price"`
 		Currency    string `json:"currency"`
 		SKU         string `json:"sku,omitempty"`
 		Description string `json:"description,omitempty"`
 		Tax         string `json:"tax,omitempty"`
+		UnitAmount PurchaseUnitAmount `json:"unit_amount,omitempty"`
 	}
 
 	// ItemList struct
@@ -323,6 +324,7 @@ type (
 	PurchaseUnit struct {
 		ReferenceID string              `json:"reference_id"`
 		Amount      *PurchaseUnitAmount `json:"amount,omitempty"`
+		Items		[]Item 				`json:"items,omitempty"`
 	}
 
 	// MerchantPreferences struct
